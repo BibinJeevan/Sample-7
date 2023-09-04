@@ -1,0 +1,23 @@
+Create table emp1(id number(3),Fname varchar(20));
+
+insert into emp1 values(101,'Nithya');
+insert into emp1 values(102,'Maya');
+
+select * from emp1;
+
+Create or replace
+Procedure insert_num(p_num number)is
+begin
+insert into emp1(id,fname)values(p_num,user);
+end insert_num;
+/
+
+select * from emp1;
+
+Create or replace
+Procedure insert_num(p_num number,p_name varchar)is
+insert into emp1(id,fname)values(p_num,p_name);
+end insert_num1;
+/
+
+select * from emp1;

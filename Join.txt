@@ -1,0 +1,7 @@
+create table projects(project_no int,eid int references employee,dept varchar(20));
+
+select employee.ename,projects.dept from employee inner join projects on employee.eid=projects.eid;
+
+select employee.ename,employee.city,employee.salary,employee.age,projects.project_no,projects.dept from employee left join projects on employee.eid=projects.eid;
+
+select employee.ename,employee.city,employee.salary,employee.age,projects.project_no,projects.dept from employee right join projects on employee.eid=projects.eid;

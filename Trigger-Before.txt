@@ -1,0 +1,9 @@
+CREATE OR REPLACE TRIGGER CheckAge
+BEFORE INSERT OR UPDATE on Customer2
+FOR EACHROW
+BEGIN
+if:new.Age<10 THEN
+raise_application_error(-2001,'Age should not be less than 10');
+END IF;
+END;
+/

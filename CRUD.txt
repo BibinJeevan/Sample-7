@@ -1,0 +1,21 @@
+db.Empdetails.FindOne({name:"Mohan"});          //find name
+
+db.Empdetails.Find({Salary:{$gte:5000}});       //sal>=5000
+
+db.Empdetails.Find({name:/^R/});               //name starts with R
+
+db.Empdetails.Find({name:{$nin:["Mohan","Raju","Bhuvan"]}});           //details of name not m,r,b
+
+db.Empdetails.Find({name:{$in:["Mohan","Raju","Bhuvan"]}});           //details of m,r,b
+
+db.Empdetails.Find({$and:[{age:{$lt:30}},{Salary:{$gt:5000}}]});      //details of sal>500 & age<30
+
+db.Empdetails.Update({name:"Mohan"},{$set:"email":neil@gps.com"}});     //update email whose name is mohan
+
+db.Empdetails.deleteMany({age:{$gt:50}});                          //delete all docs of whose age>56
+
+
+
+Retrieve
+
+db.Empdetails.Find({age:{$lt:30}},{name:1,Salary:1});

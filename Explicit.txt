@@ -1,0 +1,17 @@
+set serveroutput on
+declare
+id emp2.id%type;
+name emp2.name%type;
+salary emp2.salary%type;
+cursor c_emp is
+select id,name,salary from emp2;
+begin
+open c_emp;
+loop
+Fetch c_emp into id,name,salary;
+exit when c_emp%not found;
+dbms_output.put_line(id||''||name||''||salary);
+end loop;
+close c_emp;
+end;
+/

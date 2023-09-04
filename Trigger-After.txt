@@ -1,0 +1,15 @@
+CREATE OR REPLACE TRIGGER trg_cus
+AFTER UPDATE
+OF SALARY
+ON Customer2
+FOR EACHROW
+DECLARE
+Username Varchar(20);
+BEGIN
+--get current login user
+SELECT USER INTO Username FROM dual;
+--insert new values into log table
+INSERT INTO Customers_Salary_log VALUES(
+:NEW.ID,:NEW.SALARY,Sysdate,Username);
+END;
+/
